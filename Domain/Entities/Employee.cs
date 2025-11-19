@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,9 +43,27 @@ namespace Employee_Insight_System.Domain.Entities
             Department  = department;
             DateHired = dateHired;
             IsActive = true;
-
-            
         }
+
+        //Domain behavior - entities do things - Update phone number
+        public void UpdatePhone(string newPhone) 
+        {
+            if (string.IsNullOrWhiteSpace(newPhone))
+                throw new ArgumentException("Phone number cannot be empty");
+
+            EmployeePhone = newPhone;
+        }
+
+        public void Deactivate()
+        {
+            IsActive = false;
+        }
+
+        public void Activate()
+        {
+            IsActive = true;
+        }
+
 
 
     }
