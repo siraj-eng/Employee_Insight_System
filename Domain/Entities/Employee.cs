@@ -54,6 +54,13 @@ namespace Employee_Insight_System.Domain.Entities
             EmployeePhone = newPhone;
         }
 
+        public void UpdateDepartment(string newDepartment)
+        {
+            if (string.IsNullOrWhiteSpace(newDepartment))
+                throw new ArgumentException("Department cannot be empty");
+            Department = newDepartment;
+        }
+
         public void Deactivate()
         {
             IsActive = false;
