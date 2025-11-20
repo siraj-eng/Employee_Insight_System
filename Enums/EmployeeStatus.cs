@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Employee_Insight_System.Enums
 {
-    public class EmployeeStatus
+    public enum EmployeeStatus
     {
+        //Scenarios
+        Onboarded,
+        Offboarded,
+        Fired,
+        Demoted,
+        OnLeave
 
     }
 }
