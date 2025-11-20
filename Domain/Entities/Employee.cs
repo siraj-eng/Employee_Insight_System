@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employee_Insight_System.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace Employee_Insight_System.Domain.Entities
@@ -12,6 +13,7 @@ namespace Employee_Insight_System.Domain.Entities
         public string EmployeeName { get; private set; }
         public int EmployeeAge { get; private set; }
         public string EmployeePhone { get; private set; }
+        public EmployeeStatus Status { get; private set; }
 
         //--Additional properties--
         public string Department { get; private set; }
@@ -85,6 +87,16 @@ namespace Employee_Insight_System.Domain.Entities
             IsActive = true;
             TerminationDate = null;
         }
+
+        /*
+         *Domain Methods that matches the Employee Statuses
+         */
+
+        public void MarkAsFired () => Status = EmployeeStatus.Fired;
+        public void MarkAsOnLeave () => Status = EmployeeStatus.OnLeave;
+        public void MarkAsDemoted () => Status = EmployeeStatus.Demoted;
+        public void Offboard() => Status = EmployeeStatus.Offboarded;
+
 
         // Calculated property: tenure in months
         public int TenureInMonths => ((TerminationDate ?? DateTime.Now) - DateHired).Days / 30;

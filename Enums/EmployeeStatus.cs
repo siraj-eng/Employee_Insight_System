@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Employee_Insight_System.Enums
 {
-    internal class EmployeeStatus
+    public class EmployeeStatus
     {
+
     }
 }

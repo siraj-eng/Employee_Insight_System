@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Employee_Insight_System.Services.InsightModels
 {
-    internal class SalatyInsight
+    internal class SalaryInsight
     {
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Employee_Insight_System.Domain.Entities
 {
-    internal class DynamicAttribute
+    public  class DynamicAttribute
     {
+
     }
 }
