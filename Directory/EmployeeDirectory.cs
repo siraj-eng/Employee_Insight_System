@@ -30,17 +30,13 @@ namespace Employee_Insight_System.Directory
         }
 
         //Get all employees
-        public void GetAllemployees(string employeeName)
+        public List<Employee> GetAllEmployees(string employeeName)
         {
-           var employees = Employees.Select(e  => e.EmployeeName == employeeName).ToList();
-            
-           //LOOP AND DISPLAY
-           foreach( var employee in employees)
-           {
-             Console.WriteLine(employee);
-           }
-
+            return Employees
+                .Where(e => e.EmployeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase))
+                .ToList();
         }
+
 
     }
 }
