@@ -21,25 +21,14 @@ namespace Employee_Insight_System.Directory
          * Employee Retrieval and LookUp - Employee manipulation methods
          */
         //Get employee by ID method
-        public void getEmployeeID(string employeeName, int employeeId )
+        public Employee GetEmployeeById(int employeeId)
         {
-            Console.Write("Enter the employee Id");
-            string employerId = string.Parse( employeeId.ToInt() );
+            if (employeeId <= 0)
+                throw new ArgumentException("Employee ID must be greater than zero.");
 
-            //verification steps - step 1
-            if(employeeId == 0 || employeeId == null)
-            {
-                throw new ArgumentException("employee cannot be null or zero");
-                
-            }
-
-            //get the method employee name
-            var employeeName = Employees.Where(employeeId => employerId);
-
-            Employee employee = Employees.SingleOrDefault( employeeName );
-
-            Console.WriteLine($"{employerId} {employeeName}");
-
+            return Employees.SingleOrDefault(e => e.EmployeeId == employeeId);
         }
+
+
     }
 }
