@@ -29,6 +29,18 @@ namespace Employee_Insight_System.Directory
             return Employees.SingleOrDefault(e => e.EmployeeId == employeeId);
         }
 
+        //Get all employees
+        public void GetAllemployees(string employeeName)
+        {
+           var employees = Employees.Select(e  => e.EmployeeName == employeeName).ToList();
+            
+           //LOOP AND DISPLAY
+           foreach( var employee in employees)
+           {
+             Console.WriteLine(employee);
+           }
+
+        }
 
     }
 }
