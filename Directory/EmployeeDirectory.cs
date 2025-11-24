@@ -53,5 +53,13 @@ namespace Employee_Insight_System.Directory
                 
         }
 
+        //2. Methods to filter employees by department
+        public List<Employee> SearchEmployeesByDepartment(string employeeDepartment)
+        {
+            return Employees
+                .Where(e => e.Department.Equals(employeeDepartment, StringComparison.OrdinalIgnoreCase)) 
+                .ToList();
+        }
+
     }
 }
