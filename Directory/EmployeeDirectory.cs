@@ -81,12 +81,12 @@ namespace Employee_Insight_System.Directory
         /*
          * Grouping and Aggregation - To compute values containing salary and all that
          */
-        //1. Method to group employees by department
-        public List<Employee> GroupEmployeesByDepartment(Department department) 
+        // 1. Group employees by department
+        public IEnumerable<IGrouping<string, Employee>> GroupEmployeesByDepartment()
         {
             return Employees
-                .Select(e => e.Department.Equals(department, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+                .GroupBy(e => e.Department);
         }
+
     }
 }
