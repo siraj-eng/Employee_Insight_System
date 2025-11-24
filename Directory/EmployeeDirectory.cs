@@ -77,5 +77,16 @@ namespace Employee_Insight_System.Directory
                 .Where(e => e.Status == status)
                 .ToList();
         }
+
+        /*
+         * Grouping and Aggregation - To compute values containing salary and all that
+         */
+        //1. Method to group employees by department
+        public List<Employee> GroupEmployeesByDepartment(Department department) 
+        {
+            return Employees
+                .Select(e => e.Department.Equals(department, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
     }
 }
