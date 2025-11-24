@@ -37,6 +37,11 @@ namespace Employee_Insight_System.Directory
                 .ToList();
         }
 
+        //Method to check if an employee exists
+        public bool EmployeeExists(string employeeName) 
+        {
+            return Employees.Any(e => employeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase))
+        }
 
     }
 }
