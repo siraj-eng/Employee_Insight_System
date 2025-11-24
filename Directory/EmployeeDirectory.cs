@@ -40,7 +40,17 @@ namespace Employee_Insight_System.Directory
         //Method to check if an employee exists
         public bool EmployeeExists(string employeeName) 
         {
-            return Employees.Any(e => employeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase))
+            return Employees.Any(e => employeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase));
+        }
+
+        /*Search and Filtering Methods*/
+        //1. Method to search employees by name or partial match
+        public List<Employee> SearchEmployeeByName(string employeeName)
+        {
+            return Employees
+                .Where(e => e.EmployeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+                
         }
 
     }
