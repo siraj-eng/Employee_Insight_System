@@ -54,7 +54,7 @@ namespace Employee_Insight_System.Directory
         }
 
         //2. Methods to filter employees by department
-        public List<Employee> SearchEmployeesByDepartment(string employeeDepartment)
+        public List<Employee> FilterEmployeesByDepartment(string employeeDepartment)
         {
             return Employees
                 .Where(e => e.Department.Equals(employeeDepartment, StringComparison.OrdinalIgnoreCase)) 
@@ -62,11 +62,18 @@ namespace Employee_Insight_System.Directory
         }
 
         //3.Method to filter employees by job title or role
-        public List<Employee> SearchEmployeesByJobTitle(string employeeJobTitle) 
+        public List<Employee> FilterEmployeesByJobTitle(string employeeJobTitle) 
         {
             return Employees
                 .Where(e => e.Role.Equals(employeeJobTitle, StringComparison.OrdinalIgnoreCase))
                 .ToList();
+        }
+
+        //4. Method to filter employees by employment status
+        public List<Employee> FilterEmployeesByEmploymentStatus(string employeeEmploymentStatus) 
+        {
+            return Employees
+                .Where(e => e.Status.Equals(employeeEmploymentStatus, StringComparison.OrdinalIgnoreCase)).ToList();
         }
     }
 }
