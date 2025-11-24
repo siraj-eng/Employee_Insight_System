@@ -48,7 +48,7 @@ namespace Employee_Insight_System.Directory
         public List<Employee> SearchEmployeeByName(string employeeName)
         {
             return Employees
-                .Where(e => e.EmployeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase))
+                .Where(e => e.EmployeeName.Contains(employeeName, StringComparison.OrdinalIgnoreCase))
                 .ToList();
                 
         }
