@@ -61,5 +61,12 @@ namespace Employee_Insight_System.Directory
                 .ToList();
         }
 
+        //3.Method to filter employees by job title or role
+        public List<Employee> SearchEmployeesByJobTitle(string employeeJobTitle) 
+        {
+            return Employees
+                .Where(e => e.Role.Equals(employeeJobTitle, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
     }
 }
