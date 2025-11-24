@@ -1,4 +1,5 @@
 ﻿using Employee_Insight_System.Domain.Entities;
+using Employee_Insight_System.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,10 +71,11 @@ namespace Employee_Insight_System.Directory
         }
 
         //4. Method to filter employees by employment status
-        public List<Employee> FilterEmployeesByEmploymentStatus(string employeeEmploymentStatus) 
+        public List<Employee> FilterEmployeesByEmploymentStatus(EmployeeStatus status) 
         {
             return Employees
-                .Where(e => e.Status.Equals(employeeEmploymentStatus, StringComparison.OrdinalIgnoreCase)).ToList();
+                .Where(e => e.Status == status)
+                .ToList();
         }
     }
 }
