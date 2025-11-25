@@ -2,6 +2,7 @@
 using Employee_Insight_System.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Authentication;
 using System.Text;
@@ -138,6 +139,22 @@ namespace Employee_Insight_System.Directory
             }
         }
 
+        /*
+         *Analytics & High-Level Metrics --> These are higher level metrics that will be used to endure the process In Hr auditing possibly
+         *
+         */
 
+        //1. Method to calculate overall tenure distribution
+        public Dictionary<int, string> GetEmployeesTenure(string employeeName, DateTime datehired)
+        {
+            var now = DateTime.Now;
+
+            var employeesTenureDistribution = Employees.Where(e => e.DateHired - now);
+
+            foreach(var e in employeesTenureDistribution) 
+            { Console.WriteLine($"{employeeName} | {employeesTenureDistribution}");
+
+        }
     }
+
 }
