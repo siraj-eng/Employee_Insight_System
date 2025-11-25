@@ -88,5 +88,12 @@ namespace Employee_Insight_System.Directory
                 .GroupBy(e => e.Department);
         }
 
+        // 2. Group employees by role
+        public IEnumerable<IGrouping<string, Employee>> GroupEmployeesByRole()
+        {
+            return Employees
+                .GroupBy(e => e.Role);
+        }
+
     }
 }
