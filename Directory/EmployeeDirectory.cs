@@ -3,6 +3,7 @@ using Employee_Insight_System.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -123,14 +124,17 @@ namespace Employee_Insight_System.Directory
         }
 
         /* Department-Level Insights -- These are some of the impactful methods to manipulate employees departmental structure */
-        public void EmployeesDepartment(string employeeName, string departmentName) 
+        public void EmployeesDepartment(string departmentName) 
         {
-            var employeeDepartment = Employees.GroupBy(e => e.Department);
-            var EmployeeName = employeeName;
+            var employeesInDept = Employees
+                .Where(e => e.Department.Equals(departmentName, StringComparison.OrdinalIgnoreCase))
+                .ToList();
 
-            foreach(var employee in Employees)
+            Console.WriteLine($"---Department: {departmentName} | Headcount: {employeesInDept.Count}");
+
+            foreach(var e in employeesInDept)
             {
-                Console.WriteLine($"{employee.EmployeeName} - {employee.Department}");
+                Console.WriteLine($"{e.EmployeeName} | {e.Role} | {e.Status}");
             }
         }
 
