@@ -159,6 +159,25 @@ namespace Employee_Insight_System.Directory
             }
         }
 
+        // 2. Method to Longest-serving employees
+        public List<Employee> GetTheLongestServingEmployees(int count = 5)
+        {
+            return Employees
+                .OrderBy(e => e.DateHired)
+                .Take(count)
+                .ToList();
+                
+        }
+
+        //3. Method to identify recent Hires
+        public List<Employee> GetTheRecentHires(int count = 5) 
+        {
+            return Employees
+                 .OrderByDescending(e => e.DateHired)
+                 .Take(count)
+                 .ToList();     
+        }
+
 
     }
 
