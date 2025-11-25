@@ -145,15 +145,20 @@ namespace Employee_Insight_System.Directory
          */
 
         //1. Method to calculate overall tenure distribution
-        public Dictionary<string, double> GetEmployeesTenure()
+        public void GetEmployeesTenure(string employeeName, DateTime dateHired)
         {
             var now = DateTime.Now;
 
-            return Employees.ToDictionary(
-                e => e.EmployeeName,
-                e => Math.Round((now - e.DateHired).TotalDays / 365, 2)
-            );
+            var employeesTenure = Employees
+                .Where(e => e.EmployeeName == employeeName && e.DateHired == dateHired)
+                .Select(e => now - e.DateHired);
+
+            foreach (var tenure in employeesTenure)
+            {
+                Console.WriteLine($"{employeeName} | {tenure.TotalDays / 365:0.00} years");
+            }
         }
+
 
     }
 
