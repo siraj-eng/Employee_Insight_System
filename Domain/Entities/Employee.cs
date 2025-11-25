@@ -17,6 +17,7 @@ namespace Employee_Insight_System.Domain.Entities
 
         //--Additional properties--
         public string Department { get; private set; }
+        public string Role { get; private set; }
         public DateTime DateHired { get; private set; }
         public bool IsActive { get; private set; }
 
@@ -33,6 +34,7 @@ namespace Employee_Insight_System.Domain.Entities
         public Employee(int employeeId, string employeeName,
                         int employeeAge, string employeePhone,
                         string department, DateTime dateHired,
+                        string role,
                         decimal salary = 0)
         {
             if (employeeId <= 0)
@@ -50,6 +52,7 @@ namespace Employee_Insight_System.Domain.Entities
             EmployeePhone = employeePhone;
             Department = department;
             DateHired = dateHired;
+            Role = role;
             Salary = salary;
             IsActive = true;
         }
