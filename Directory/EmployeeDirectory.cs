@@ -115,11 +115,12 @@ namespace Employee_Insight_System.Directory
             return Employees.Count(e => e.Status ==  EmployeeStatus.Active);
         }
 
-
-
-
-
-
+        //6. Method to compute employees hired within a date range
+        public IEnumerable<Employee> GetEmployeesHiredWithinDateRange(DateTime startDate, DateTime endDate)
+        {
+            return Employees
+                .Where(e => e.DateHired >= startDate && e.DateHired <= endDate);
+        }
 
 
     }
