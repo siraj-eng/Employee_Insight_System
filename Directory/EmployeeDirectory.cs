@@ -122,6 +122,18 @@ namespace Employee_Insight_System.Directory
                 .Where(e => e.DateHired >= startDate && e.DateHired <= endDate);
         }
 
+        /* Department-Level Insights -- These are some of the impactful methods to manipulate employees departmental structure */
+        public void EmployeesDepartment(string employeeName, string departmentName) 
+        {
+            var employeeDepartment = Employees.GroupBy(e => e.Department);
+            var EmployeeName = employeeName;
+
+            foreach(var employee in Employees)
+            {
+                Console.WriteLine($"{employee.EmployeeName} - {employee.Department}");
+            }
+        }
+
 
     }
 }
