@@ -104,12 +104,9 @@ namespace Employee_Insight_System.Directory
         }
 
         //4. Method to compute total headcount
-        public List<Employee> totalHeadsCount(int employeeId)
+        public int TotalHeadcount()
         {
-            retu
-
-                
-            
+            return Employees.Count();
         }
 
 
