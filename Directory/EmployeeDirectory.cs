@@ -103,6 +103,14 @@ namespace Employee_Insight_System.Directory
                 .FirstOrDefault(g => g.Key == status);
         }
 
+        //4. Method to compute total headcount
+        public List<Employee> totalHeadsCount(int employeeId)
+        {
+            retu
+
+                
+            
+        }
 
 
 
