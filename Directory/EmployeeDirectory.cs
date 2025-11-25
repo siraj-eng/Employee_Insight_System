@@ -109,6 +109,12 @@ namespace Employee_Insight_System.Directory
             return Employees.Count();
         }
 
+        //5. Method to compute Active employee count
+        public int ActiveEmployees()
+        {
+            return Employees.Count(e => e.Status ==  EmployeeStatus.Active);
+        }
+
 
 
 
