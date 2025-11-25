@@ -95,5 +95,14 @@ namespace Employee_Insight_System.Directory
                 .GroupBy(e => e.Role);
         }
 
+        // 3. Group employees by status
+        public IEquatable<IGrouping<string, Employee>> GroupEmployeeByStatus(EmployeeStatus status) 
+        {
+            return Employees
+                .GroupBy(e => e.Status);
+        }
+
+
+
     }
 }
