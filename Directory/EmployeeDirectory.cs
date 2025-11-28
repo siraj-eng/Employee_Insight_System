@@ -197,6 +197,18 @@ namespace Employee_Insight_System.Directory
                 .ToDictionary(g => g.Key, g => g.Count());
         }
 
+        public List<Employee> GetAnomalies()
+        {
+            return Employees
+                .Where(e =>
+                    (!e.IsActive && e.TerminationDate == null) ||   // inactive with no termination
+                    e.Department == null ||                         // missing department
+                    string.IsNullOrWhiteSpace(e.Role)               // missing role
+                )
+                .ToList();
+        }
+
+
 
 
     }
