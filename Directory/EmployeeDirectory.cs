@@ -208,6 +208,18 @@ namespace Employee_Insight_System.Directory
                 .ToList();
         }
 
+        public void AddEmployee(Employee employee)
+        {
+            if (employee == null)
+                throw new ArgumentNullException(nameof(employee));
+
+            if (Employees.Any(e => e.EmployeeId == employee.EmployeeId))
+                throw new InvalidOperationException("Employee already exists.");
+
+            Employees.Add(employee);
+        }
+
+
 
 
 
