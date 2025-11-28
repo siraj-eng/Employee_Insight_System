@@ -13,7 +13,8 @@ namespace Employee_Insight_System.Enums
         Offboarded,
         Fired,
         Demoted,
-        OnLeave
+        OnLeave,
+        Active
 
     }
 }

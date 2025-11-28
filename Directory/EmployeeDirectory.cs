@@ -178,6 +178,26 @@ namespace Employee_Insight_System.Directory
                  .ToList();     
         }
 
+        // 3 (a) - Method to identify recent hires within custom range date
+        public List<Employee> GetRecentHiresWithinRange(DateTime start, DateTime end)
+        {
+            return Employees
+                .Where(e => e.DateHired >= start && e.DateHired <= end)
+                .OrderByDescending(e => e.DateHired)
+                .ToList();
+        }
+
+        // 4. 
+        
+        public Dictionary<int, int> ComputeAttritionTrends()
+        {
+            return Employees
+                .Where(e => e.TerminationDate != null)
+                .GroupBy(e => e.TerminationDate.Value.Year)
+                .ToDictionary(g => g.Key, g => g.Count());
+        }
+
+
 
     }
 
