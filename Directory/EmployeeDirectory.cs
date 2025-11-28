@@ -229,6 +229,14 @@ namespace Employee_Insight_System.Directory
             return true;
         }
 
+        public void RefreshDirectory(List<Employee> freshEmployees)
+        {
+            if (freshEmployees == null)
+                throw new ArgumentNullException(nameof(freshEmployees));
+
+            Employees = freshEmployees;
+        }
+
 
 
 
