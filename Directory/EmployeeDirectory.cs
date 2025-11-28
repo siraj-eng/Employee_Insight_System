@@ -219,6 +219,17 @@ namespace Employee_Insight_System.Directory
             Employees.Add(employee);
         }
 
+        public bool RemoveEmployee(int employeeId)
+        {
+            var employee = Employees.FirstOrDefault(e => e.EmployeeId == employeeId);
+            if (employee == null)
+                return false;
+
+            Employees.Remove(employee);
+            return true;
+        }
+
+
 
 
 
