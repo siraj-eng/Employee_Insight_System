@@ -187,7 +187,7 @@ namespace Employee_Insight_System.Directory
                 .ToList();
         }
 
-        // 4. 
+        // 4. Compute attrition trends - if termination date does not exist
         
         public Dictionary<int, int> ComputeAttritionTrends()
         {
@@ -197,6 +197,7 @@ namespace Employee_Insight_System.Directory
                 .ToDictionary(g => g.Key, g => g.Count());
         }
 
+        // 5 - Surface Anomalies -> inactive with no termination date - missing department
         public List<Employee> GetAnomalies()
         {
             return Employees
@@ -208,6 +209,7 @@ namespace Employee_Insight_System.Directory
                 .ToList();
         }
 
+        // Register - Add employee 
         public void AddEmployee(Employee employee)
         {
             if (employee == null)
@@ -219,6 +221,7 @@ namespace Employee_Insight_System.Directory
             Employees.Add(employee);
         }
 
+        //Unregistrer - Remove employee
         public bool RemoveEmployee(int employeeId)
         {
             var employee = Employees.FirstOrDefault(e => e.EmployeeId == employeeId);
@@ -229,6 +232,7 @@ namespace Employee_Insight_System.Directory
             return true;
         }
 
+        //Refresh - cache (build directory)
         public void RefreshDirectory(List<Employee> freshEmployees)
         {
             if (freshEmployees == null)
@@ -236,12 +240,6 @@ namespace Employee_Insight_System.Directory
 
             Employees = freshEmployees;
         }
-
-
-
-
-
-
     }
 
 }
