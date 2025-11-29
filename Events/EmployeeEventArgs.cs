@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employee_Insight_System.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,9 @@ namespace Employee_Insight_System.Events
         public string EmployeeName { get; }
         public string Department {  get; }
         public DateTime EventTimestamp { get; }
+        public EmployeeEventArgs(Employee employee) => Employee = employee;
+
+        public bool IsActive { get; set; } = true;
 
         //Optional metadata for analytics
         public string EventType { get; } // e.g "Onboarded" , "Terminated"

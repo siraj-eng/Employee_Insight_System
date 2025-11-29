@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employee_Insight_System.Domain.Entities;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -118,8 +119,9 @@ namespace Employee_Insight_System.Events
                 .ToList();
         }
 
-
-
-
+        internal void OnEmployeeOnboarded(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
