@@ -81,5 +81,21 @@ namespace Employee_Insight_System.Events
 
             return query;
         }
+
+        /*
+         * Utility / Maintenance -> list all active subscribers  & clear all subscriptions
+         */
+
+        //List all active subscribers for an event type
+        public IEnumerable<EmployeeEventArgs>_eventsListed(string ? eventType = null, IEnumerable<EmployeeEventArgs> events)
+        {
+            var query = events.AsEnumerable();
+
+            if (!string.IsNullOrWhiteSpace(eventType)) 
+            query = query.Where(e => e.EventType.Equals(eventType, StringComparison.OrdinalIgnoreCase));
+
+            return query;
+        }
+
     }
 }
