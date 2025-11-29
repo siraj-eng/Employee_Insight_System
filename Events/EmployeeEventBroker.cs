@@ -87,15 +87,39 @@ namespace Employee_Insight_System.Events
          */
 
         //List all active subscribers for an event type
-        public IEnumerable<EmployeeEventArgs>_eventsListed(string ? eventType = null, IEnumerable<EmployeeEventArgs> events)
+        public IEnumerable<EmployeeEventArgs>GetEvents (IEnumerable<EmployeeEventArgs> events, string? eventType = null)
         {
-            var query = events.AsEnumerable();
+            var query = events.Where(e => e.IsActive);
 
             if (!string.IsNullOrWhiteSpace(eventType)) 
             query = query.Where(e => e.EventType.Equals(eventType, StringComparison.OrdinalIgnoreCase));
 
             return query;
         }
+
+        //Mark event as inactive
+        public void ClearAllSubscriptions(IEnumerable<EmployeeEventArgs> events, string? eventType = null)
+        {
+            foreach (var e in events)
+            {
+                if (string.IsNullOrWhiteSpace(eventType) ||
+                    e.EventType.Equals(eventType, StringComparison.OrdinalIgnoreCase))
+                {
+                    e.IsActive = false; // mark as inactive
+                }
+            }
+        }
+
+        //Clear all subscriptions method
+        public IEnumerable<EmployeeEventArgs> ClearSubscribers (IEnumerable<EmployeeEventArgs> events, string? eventType = null)
+        {
+            return events
+                .Where(e => string.IsNullOrWhiteSpace(eventType) || !e.EventType.Equals(eventType, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+
+
 
     }
 }
