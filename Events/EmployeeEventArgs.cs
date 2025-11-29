@@ -35,9 +35,5 @@ namespace Employee_Insight_System.Events
             EventTimestamp = DateTime.Now;
         }
 
-
-
-
-
     }
 }
